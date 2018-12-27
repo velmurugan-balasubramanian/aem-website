@@ -13,7 +13,7 @@ The main parts of the template are:
 * ui.launcher: contains glue code that deploys the ui.tests bundle (and dependent bundles) to the server and triggers the remote JUnit execution
 
 ## How to build
-
+making change in master branch
 To build all the modules run in the project root directory the following command with Maven 3:
 
     mvn clean install
