@@ -26,5 +26,3 @@ new hobs.TestSuite("aem.website Tests", {path:"/apps/aem.website/tests/SampleTes
         .asserts.location("/content/aem.website/fr.html", true)
         .asserts.visible(".helloworld", true)
     );
-
-console.log("duh duh duh ");
