@@ -1,0 +1,19 @@
+<sly data-sly-use.footer="com.aem.website.core.models.FooterModel"/>
+<footer class="pt-4 my-md-5 pt-md-5 border-top">
+	<div class="row">
+		<div class="col-12 col-md">
+			<img class="mb-2" src="${properties.copyRightImagePath}" alt="" width="24" height="24">
+			<small class="d-block mb-3 text-muted"> &copy; ${properties.copyRightText}</small>
+		</div>
+		<sly data-sly-list.footerColumns="${footer.footerColumn}">
+		<div class="col-6 col-md">
+			<h5>${footerColumns.heading}</h5>
+			<sly data-sly-list.subItems="${footerColumns.footerItem}">
+			<ul class="list-unstyled text-small">
+				<li><a class="text-muted" href="${subItems.footerLink}">${subItems.footerText}</a></li>
+			</ul>
+			</sly>
+		</div>
+		</sly>
+	</div>
+</footer>
