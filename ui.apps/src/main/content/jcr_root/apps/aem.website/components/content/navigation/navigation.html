@@ -1,0 +1,28 @@
+<sly data-sly-use.navModel="com.aem.website.core.models.NavigationModel" />
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
+	<a class="navbar-brand" href="#"> La navbar</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul data-sly-list.nav="${navModel.menuItem}" class="navbar-nav mr-auto">
+				<sly data-sly-test="${!nav.submenuItem}">
+				<li class="nav-item active">
+					<a class="nav-link" href="${nav.menuLink}">${nav.menuText} <span class="sr-only"></span></a>
+				</li>
+				</sly>
+				<sly data-sly-test="${nav.submenuItem}">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="${nav.menuLink}" id="dropdownShow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${nav.menuText}</a>
+						<div data-sly-list.subnav="${nav.submenuItem}" class="dropdown-menu" aria-labelledby="dropdownShow">
+							<a class="dropdown-item" href="${subnav.submenuLink}">${subnav.submenuText}</a>
+						</div>
+					</li>
+				</sly>
+			</ul>
+		<form class="form-inline mt-2 mt-md-0">
+			<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		</form>
+	</div>
+</nav>
