@@ -5,6 +5,7 @@ import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
+import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.Component;
 
@@ -25,7 +26,7 @@ import java.io.IOException;
                 "sling.servlet.methods=" + HttpConstants.METHOD_GET
 
         })
-public class MongoDataWriteServlet extends SlingSafeMethodsServlet {
+public class MongoDataWriteServlet extends SlingAllMethodsServlet {
 
     private static final long serialVersionUid = 1L;
 
@@ -34,6 +35,6 @@ public class MongoDataWriteServlet extends SlingSafeMethodsServlet {
                          final SlingHttpServletResponse resp) throws ServletException, IOException {
         final Resource resource = req.getResource();
         resp.setContentType("text/plain");
-        resp.getWriter().write("asdfghjk");
+        resp.getWriter().write("asdfghjkd");
     }
 }
