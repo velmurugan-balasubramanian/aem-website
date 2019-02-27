@@ -12,6 +12,8 @@ import org.osgi.service.component.annotations.Component;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Map;
 
 /**
  * Servlet that writes some sample content into the response. It is mounted for
@@ -31,10 +33,14 @@ public class MongoDataWriteServlet extends SlingAllMethodsServlet {
     private static final long serialVersionUid = 1L;
 
     @Override
-    protected void doGet(final SlingHttpServletRequest req,
+    protected void doPost(final SlingHttpServletRequest req,
                          final SlingHttpServletResponse resp) throws ServletException, IOException {
-        final Resource resource = req.getResource();
+        //final Resource resource = req.getResource();
+
+        Map<String, String[]> bandInfo = req.getParameterMap();
+        String bandName = Arrays.asList(bandInfo.get("bandName")).get(0);
+        String albumName =  Arrays.asList(bandInfo.get("albumName")).get(0);
         resp.setContentType("text/plain");
-        resp.getWriter().write("asdfghjkd");
+        resp.getWriter().write(bandName + albumName);
     }
 }
