@@ -1,16 +1,11 @@
 package com.aem.website.core.models;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import java.util.List;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.models.annotations.Optional;
-import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.settings.SlingSettingsService;
 
 @Model(
 	    adaptables = {Resource.class},
@@ -18,11 +13,9 @@ import org.apache.sling.settings.SlingSettingsService;
 public interface NavigationModel {
 	
 	@Inject
-	  List<MenuItem> getMenuItem(); // the name `getCompanies` corresponds to the multifield name="./companies"
-	  /**
-	   * Company model
-	   * has a name and a list of departments
-	   */
+	  List<MenuItem> getMenuItem(); 
+
+	
 	  @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 	  interface MenuItem {
 	    @Inject
@@ -31,13 +24,12 @@ public interface NavigationModel {
 	    @Inject
 	    String getMenuLink();
 	    
+	    // Inject Submenu to read nested Multifield values
 	    @Inject
-	    List<SubMenuItem> getSubmenuItem(); // the name `getDepartments` corresponds to the multifield name="./departments"
+	    List<SubMenuItem> getSubmenuItem(); 
 	  }
-	  /**
-	   * Department model
-	   * has a name and a manager
-	   */
+
+	  
 	  @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 	  interface SubMenuItem {
 		    @Inject

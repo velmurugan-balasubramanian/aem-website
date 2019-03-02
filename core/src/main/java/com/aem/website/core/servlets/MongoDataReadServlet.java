@@ -35,25 +35,19 @@ public class MongoDataReadServlet extends SlingSafeMethodsServlet {
     private static final long serialVersionUid = 1L;
 
     @Reference
-    private ReadDataService savedata;
+    private ReadDataService readdata;
 
     @Override
-    protected void doGet(final SlingHttpServletRequest req,
-                         final SlingHttpServletResponse resp) throws ServletException, IOException {
-
-
-
-
+    protected void doGet(final SlingHttpServletRequest request,
+                         final SlingHttpServletResponse response) throws ServletException, IOException {
 
 
         JSONObject finalResponse = new JSONObject();
-        finalResponse = savedata.readDataFromMongoDB();
-//        Map<String, String[]> userDetails = req.getParameterMap();
-//        String firstname = Arrays.asList(userDetails.get("firstname")).get(0);
-//        String lastname =  Arrays.asList(userDetails.get("lastname")).get(0);
-//        String email =  Arrays.asList(userDetails.get("email")).get(0);
-//        String enquiry =  Arrays.asList(userDetails.get("enquiry")).get(0);
-        resp.setContentType("application/json");
-        resp.getWriter().print(finalResponse);
+        
+        // Invoke the readDataFromMongoDB to return a JSON with all user documents
+        finalResponse = readdata.readDataFromMongoDB();
+
+        response.setContentType("application/json");
+        response.getWriter().print(finalResponse);
     }
 }
