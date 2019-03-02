@@ -60,7 +60,7 @@ public class SaveDataServiceimpl implements SaveDataService {
         String enquiry =  Arrays.asList(user.get("enquiry")).get(0);
 
         try {
-            MongoClient mongoClient = new MongoClient( "ds143132.mlab.com" , 43132 );
+            MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
             MongoDatabase db = mongoClient.getDatabase("userDetails");
             MongoCollection<Document> collection = db.getCollection("formData");
             Document doc = new Document();

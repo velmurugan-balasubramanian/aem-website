@@ -9,7 +9,7 @@ $(document).ready(function(){
     const enquiry = $('#enquiry').val();
       let userDetails = {"firstname":firstname,"lastname":lastname,"email":email,"enquiry":enquiry}
       console.log("firstname",firstname);
-     console.log("abcde",userDetails.firstname);
+     console.log("abcde",userDetails);
       $.get("/libs/granite/csrf/token.json",function(data){
              saveValue(data.token,userDetails);
       });
@@ -27,9 +27,11 @@ $(document).ready(function(){
                 xhr.setRequestHeader("CSRF-Token", token);
             }
         }).done(function(data){
-            console.log(data);
+			console.log("data",data);
         }).fail(function(data){
 
         });
+
+
     }
 });
