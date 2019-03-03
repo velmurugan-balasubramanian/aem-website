@@ -44,7 +44,7 @@ public class ReadDataServiceimpl implements ReadDataService {
 
 			// Iterate through list and put into JSON Array
 			for (Document document : documents) {
-				arrayJSON.put(document.toJson());
+				arrayJSON.put(document);
 			}
 
 			// Put JSON Array into JSON Object
