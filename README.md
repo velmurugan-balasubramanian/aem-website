@@ -13,13 +13,13 @@ Services and model are located under aem-website/core
 The project contains 5 Components 
 
 * Navigation 
-** Navigation compoenent is based on Bootstrap Header  Navigation with menu, submenu and a search feature which can be configured
+Navigation compoenent is based on Bootstrap Header  Navigation with menu, submenu and a search feature which can be configured
 
 * Footer
-** Footer component is based on bootstrap footer with column as  multifield and column item as a nested mulitfield 
+Footer component is based on bootstrap footer with column as  multifield and column item as a nested mulitfield 
 
 * Contact Form
-** contact form component is a form which saves data to mongo DB database, MongoDB hostname and port number can be configured under "aem-website/core/src/main/java/com/aem/website/core/impl/SaveDataServiceimpl.java"
+contact form component is a form which saves data to mongo DB database, MongoDB hostname and port number can be configured under "aem-website/core/src/main/java/com/aem/website/core/impl/SaveDataServiceimpl.java"
 
 * ReadDBdata 
-** ReadDB data component fetches value from mongoDB database that was stored through contact form component MongoDB hostname and port number can be configured under "aem-website/core/src/main/java/com/aem/website/core/impl/ReadDataServiceimpl.java"
+ReadDB data component fetches value from mongoDB database that was stored through contact form component MongoDB hostname and port number can be configured under "aem-website/core/src/main/java/com/aem/website/core/impl/ReadDataServiceimpl.java"
